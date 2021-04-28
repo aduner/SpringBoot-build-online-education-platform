@@ -1,4 +1,4 @@
-package com.atguigu.servicebase.config;
+package com.aduner.servicebase.config;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;

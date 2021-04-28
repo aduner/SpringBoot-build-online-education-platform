@@ -39,14 +39,6 @@ public class Result {
         return r;
     }
 
-    public static Result error(String message) {
-        Result r = new Result();
-        r.setSuccess(false);
-        r.setCode(ResultCode.ERROR);
-        r.setMessage(message);
-        return r;
-    }
-
     public Result success(Boolean success) {
         this.setSuccess(success);
         return this;

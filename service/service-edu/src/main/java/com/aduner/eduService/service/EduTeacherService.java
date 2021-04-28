@@ -1,6 +1,8 @@
 package com.aduner.eduService.service;
 
 import com.aduner.eduService.entity.EduTeacher;
+import com.aduner.eduService.entity.vo.TeacherQuery;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -12,5 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2021-04-25
  */
 public interface EduTeacherService extends IService<EduTeacher> {
-
+    void pageQuery(Page<EduTeacher> pageParam, TeacherQuery teacherQuery);
 }

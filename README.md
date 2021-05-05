@@ -1,4 +1,3 @@
-# 工程简介
+# SpringBoot-build-online-education-platform
 
-# 延伸阅读
-
+基于SpringBoot搭建在线教育平台

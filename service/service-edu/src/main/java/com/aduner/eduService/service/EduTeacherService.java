@@ -15,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface EduTeacherService extends IService<EduTeacher> {
     void pageQuery(Page<EduTeacher> pageParam, TeacherQuery teacherQuery);
+
 }

@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
     public Result error(HttpMessageNotReadableException e) {
         log.error(ExceptionUtil.getMessage(e));
         e.printStackTrace();
-        return Result.error().message("json error").code(ResultCode.ERROR400);
+        return Result.error().message("json error");
     }
 
 }

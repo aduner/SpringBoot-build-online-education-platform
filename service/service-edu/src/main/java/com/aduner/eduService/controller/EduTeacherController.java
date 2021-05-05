@@ -41,13 +41,17 @@ public class EduTeacherController {
     }
 
 
-    @ApiOperation("根据ID删除讲师")
-    @DeleteMapping("/delete/{id}")
+    @ApiOperation(value = "根据ID删除讲师")
+    @DeleteMapping("{id}")
     public Result removeById(
             @ApiParam(name = "id", value = "讲师ID", required = true)
-            @PathVariable String id) {
-        eduTeacherService.removeById(id);
-        return Result.ok();
+            @PathVariable String id){
+        boolean result = eduTeacherService.removeById(id);
+        if(result){
+            return Result.ok();
+        }else{
+            return Result.error().message("删除失败");
+        }
     }
 
     @ApiOperation(value = "分页讲师列表")
@@ -74,7 +78,7 @@ public class EduTeacherController {
     }
 
     @ApiOperation(value = "新增讲师")
-    @PostMapping("/save")
+    @PostMapping("/add")
     public Result save(
             @ApiParam(name = "teacher", value = "讲师对象", required = true)
             @RequestBody EduTeacher teacher) {
@@ -95,7 +99,7 @@ public class EduTeacherController {
     }
 
     @ApiOperation(value = "更新讲师")
-    @PostMapping("/update/")
+    @PostMapping("/update")
     public Result updateById(
             @ApiParam(name = "teacher", value = "讲师对象", required = true)
             @RequestBody EduTeacher teacher) {

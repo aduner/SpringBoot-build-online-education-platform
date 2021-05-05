@@ -31,7 +31,7 @@
         <mybatis-plus.version>3.0.5</mybatis-plus.version>
         <velocity.version>2.0</velocity.version>
         <swagger.version>2.7.0</swagger.version>
-        <aliyun.oss.version>2.8.3</aliyun.oss.version>
+        <aliyun.oss.version>3.1.0</aliyun.oss.version>
         <jodatime.version>2.10.1</jodatime.version>
         <poi.version>3.17</poi.version>
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
@@ -111,7 +111,22 @@
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${aliyun.oss.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>2.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>activation</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+            <!-- no more than 2.3.3-->
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>2.3.2</version>
+            </dependency>
             <!--日期时间工具-->
             <dependency>
                 <groupId>joda-time</groupId>

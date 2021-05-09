@@ -24,6 +24,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.2.8</version>
+        </dependency>
+        <dependency>
             <groupId>com.aduner</groupId>
             <artifactId>service-base</artifactId>
             <version>0.0.1-SNAPSHOT</version>

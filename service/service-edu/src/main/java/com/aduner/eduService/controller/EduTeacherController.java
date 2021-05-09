@@ -55,7 +55,7 @@ public class EduTeacherController {
     }
 
     @ApiOperation(value = "分页讲师列表")
-    @PostMapping("{page}/{limit}")
+    @PostMapping("pageTeacherCondition/{page}/{limit}")
     public Result pageQuery(
             @ApiParam(name = "page", value = "当前页码", required = true)
             @PathVariable Long page,
@@ -78,7 +78,7 @@ public class EduTeacherController {
     }
 
     @ApiOperation(value = "新增讲师")
-    @PostMapping("/add")
+    @PostMapping("/addTeacher")
     public Result save(
             @ApiParam(name = "teacher", value = "讲师对象", required = true)
             @RequestBody EduTeacher teacher) {

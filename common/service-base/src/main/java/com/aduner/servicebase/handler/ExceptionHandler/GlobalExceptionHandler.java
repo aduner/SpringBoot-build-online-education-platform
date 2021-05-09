@@ -1,4 +1,4 @@
-package com.aduner.servicebase.handler;
+package com.aduner.servicebase.handler.ExceptionHandler;
 
 import com.aduner.utils.ExceptionUtil;
 import com.aduner.utils.Result;
@@ -32,4 +32,12 @@ public class GlobalExceptionHandler {
         return Result.error().message("json error");
     }
 
+    //自定义异常
+    @ExceptionHandler(AdunerException.class)
+    @ResponseBody //为了返回数据
+    public Result error(AdunerException e) {
+        log.error(e.getMessage());
+        e.printStackTrace();
+        return Result.error().code(e.getCode()).message(e.getMsg());
+    }
 }

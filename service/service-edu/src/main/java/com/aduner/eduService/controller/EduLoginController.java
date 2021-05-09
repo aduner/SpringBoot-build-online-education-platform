@@ -1,6 +1,7 @@
 package com.aduner.eduService.controller;
 
 import com.aduner.utils.Result;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/eduService/user")
 @CrossOrigin
+@Api(tags = "登录")
 public class EduLoginController {
 
     @PostMapping("login")

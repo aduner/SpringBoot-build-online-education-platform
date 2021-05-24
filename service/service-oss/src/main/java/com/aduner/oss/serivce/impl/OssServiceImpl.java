@@ -61,7 +61,7 @@ public class OssServiceImpl implements OssService {
             return url;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return "null";
         }
     }
 

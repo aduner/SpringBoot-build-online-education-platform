@@ -4,12 +4,20 @@ package com.aduner.eduService.controller;
 import com.aduner.eduService.entity.EduCourse;
 import com.aduner.eduService.entity.vo.CourseInfoVo;
 import com.aduner.eduService.entity.vo.CoursePublishVo;
+import com.aduner.eduService.entity.vo.CourseQuery;
 import com.aduner.eduService.service.EduCourseService;
 import com.aduner.utils.Result;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * <p>
@@ -26,6 +34,48 @@ import org.springframework.web.bind.annotation.*;
 public class EduCourseController {
     @Autowired
     private EduCourseService courseService;
+
+    //TODO  完善条件查询带分页
+    @ApiOperation(value = "课程列表")
+    @GetMapping
+    public Result getCourseList() {
+        List<EduCourse> list = courseService.list(null);
+        return Result.ok().data("list",list);
+    }
+
+    //4.条件查询分页方法
+    @ApiOperation(value = "条件查询分页方法")
+    @PostMapping("pageCourseCondition/{current}/{limit}")
+    public Result pageCourseCondition(@PathVariable Long current,
+                                 @PathVariable Long limit,
+                                 @RequestBody(required = false) CourseQuery courseQuery) {
+        //创建page
+        Page<EduCourse> pageCondition = new Page<>(current, limit);
+
+        //QueryWrapper,构建
+        QueryWrapper<EduCourse> wrapper = new QueryWrapper<>();
+        //多条件组合查询，动态sql
+        String status = courseQuery.getStatus();
+        String title = courseQuery.getTitle();
+        if (!StringUtils.isEmpty(title)) {
+            wrapper.like("title", title);
+        }
+        if (!StringUtils.isEmpty(status)) {
+            wrapper.eq("status", status);
+        }
+
+        wrapper.orderByDesc("gmt_create");
+
+        //调用方法，实现分页查询
+        IPage<EduCourse> page = courseService.page(pageCondition, wrapper);
+
+        long total = page.getTotal();//获取总记录数
+        List<EduCourse> records = page.getRecords();//获取分页后的list集合
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("total", total);
+        map.put("rows", records);
+        return Result.ok().data(map);
+    }
 
     @ApiOperation(value = "添加课程基本信息的方法")
     @PostMapping("addCourseInfo")

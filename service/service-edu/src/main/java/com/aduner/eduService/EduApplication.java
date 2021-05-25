@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author Aduner
  */
 @SpringBootApplication
-@ComponentScan("com.aduner")
+@ComponentScan(basePackages = {"com.aduner"})
 public class EduApplication {
     public static void main(String[] args) {
         SpringApplication.run(EduApplication.class, args);

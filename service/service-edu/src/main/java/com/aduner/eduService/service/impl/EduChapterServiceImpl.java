@@ -80,7 +80,7 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         return finalList;
     }
 
-    ////删除章节的方法
+    //删除章节的方法
     @Override
     public boolean deleteChapter(String chapterId) {
         //根据chapterid章节id 查询小节表，如果查询数据，不进行删除

@@ -36,7 +36,12 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     @Autowired
     private EduChapterService chapterService;
 
-    //添加课程基本信息的方法
+
+    /**
+     * 添加课程基本信息的方法
+     * @param courseInfoVo
+     * @return cid
+     */
     @Override
     public String saveCourseInfo(CourseInfoVo courseInfoVo) {
         //1 向课程表添加课程基本信息

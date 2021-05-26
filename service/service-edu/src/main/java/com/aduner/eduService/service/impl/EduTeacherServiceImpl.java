@@ -23,6 +23,11 @@ import java.io.Serializable;
 @Service
 public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeacher> implements EduTeacherService {
 
+    /**
+     * 分页查询
+     * @param pageParam
+     * @param teacherQuery
+     */
     @Override
     public void pageQuery(Page<EduTeacher> pageParam, TeacherQuery teacherQuery) {
         QueryWrapper<EduTeacher> queryWrapper = new QueryWrapper<>();
@@ -50,6 +55,11 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
         baseMapper.selectPage(pageParam, queryWrapper);
     }
 
+    /**
+     * 根据ID删除教师
+     * @param id
+     * @return
+     */
     @Override
     public boolean removeById(Serializable id) {
         Integer result = baseMapper.deleteById(id);

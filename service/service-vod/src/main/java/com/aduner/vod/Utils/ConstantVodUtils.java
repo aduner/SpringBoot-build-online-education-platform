@@ -4,6 +4,9 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * 读取配置文件中的数据方便调用
+ */
 @Component
 public class ConstantVodUtils implements InitializingBean {
 

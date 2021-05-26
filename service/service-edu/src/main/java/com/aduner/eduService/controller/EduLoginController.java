@@ -2,6 +2,7 @@ package com.aduner.eduService.controller;
 
 import com.aduner.utils.Result;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -13,11 +14,13 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "登录")
 public class EduLoginController {
 
+    @ApiOperation(value = "登录")
     @PostMapping("login")
     public Result login() {
         return Result.ok().data("token", "admin");
     }
 
+    @ApiOperation(value = "回显")
     @GetMapping("info")
     public Result info() {
         return Result.ok()

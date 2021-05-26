@@ -68,7 +68,11 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         return cid;
     }
 
-    //根据课程id查询课程基本信息
+    /**
+     * 根据课程id查询课程基本信息
+     * @param courseId
+     * @return
+     */
     @Override
     public CourseInfoVo getCourseInfo(String courseId) {
         //1 查询课程表
@@ -83,7 +87,10 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         return courseInfoVo;
     }
 
-    //修改课程信息
+    /**
+     * 修改课程信息
+     * @param courseInfoVo
+     */
     @Override
     public void updateCourseInfo(CourseInfoVo courseInfoVo) {
         //1 修改课程表
@@ -101,7 +108,11 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         courseDescriptionService.updateById(description);
     }
 
-    //根据课程id查询课程确认信息
+    /**
+     * 根据课程id查询课程确认信息
+     * @param id
+     * @return
+     */
     @Override
     public CoursePublishVo publishCourseInfo(String id) {
         //调用mapper
@@ -109,7 +120,10 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         return publishCourseInfo;
     }
 
-    //删除课程
+    /**
+     * 删除课程
+     * @param courseId
+     */
     @Override
     public void removeCourse(String courseId) {
         //1 根据课程id删除小节

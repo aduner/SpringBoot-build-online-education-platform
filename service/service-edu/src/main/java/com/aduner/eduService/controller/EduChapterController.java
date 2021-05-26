@@ -56,7 +56,7 @@ public class EduChapterController {
         return Result.ok();
     }
 
-    @ApiOperation(value = "删除的方法")
+    @ApiOperation(value = "删除章节")
     @DeleteMapping("{chapterId}")
     public Result deleteChapter(@PathVariable String chapterId) {
         boolean flag = chapterService.deleteChapter(chapterId);

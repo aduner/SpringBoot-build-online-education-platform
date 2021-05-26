@@ -30,7 +30,11 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
     @Autowired
     private EduVideoService videoService;//注入小节service
 
-    //课程大纲列表,根据课程id进行查询
+    /**
+     * 课程大纲列表,根据课程id进行查询
+     * @param courseId
+     * @return
+     */
     @Override
     public List<ChapterVo> getChapterVideoByCourseId(String courseId) {
 
@@ -80,7 +84,11 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         return finalList;
     }
 
-    //删除章节的方法
+    /**
+     * 删除章节的方法
+     * @param chapterId
+     * @return
+     */
     @Override
     public boolean deleteChapter(String chapterId) {
         //根据chapterid章节id 查询小节表，如果查询数据，不进行删除
@@ -89,7 +97,7 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         int count = videoService.count(wrapper);
         //判断
         if(count >0) {//查询出小节，不进行删除
-            throw new AdunerException(20001,"不能删除");
+            throw new AdunerException(20001,"请先删除小节内容");
         } else { //不能查询数据，进行删除
             //删除章节
             int result = baseMapper.deleteById(chapterId);
@@ -98,7 +106,10 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         }
     }
 
-    //2 根据课程id删除章节
+    /**
+     * 根据课程id删除章节
+     * @param courseId
+     */
     @Override
     public void removeChapterByCourseId(String courseId) {
         QueryWrapper<EduChapter> wrapper = new QueryWrapper<>();

@@ -29,7 +29,11 @@ import java.util.List;
 @Service
 public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubject> implements EduSubjectService {
 
-    //添加课程分类
+    /**
+     * 添加课程分类
+     * @param file
+     * @param subjectService
+     */
     @Override
     public void saveSubject(MultipartFile file,EduSubjectService subjectService) {
         try {
@@ -43,8 +47,10 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
     }
 
 
-
-    //课程分类列表（树形）
+    /**
+     * 课程分类列表（树形）
+     * @return
+     */
     @Override
     public List<OneSubject> getAllOneTwoSubject() {
         //1 查询所有一级分类  parentid = 0
